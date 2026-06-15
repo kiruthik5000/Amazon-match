@@ -24,10 +24,11 @@ services:
   backend:
     build: ./backend
     container_name: amazon-watch-backend
+    restart: always
     ports:
       - "8080:8080"
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/amazon_rematch?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/amazon_rematch?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
       - AI_SERVICES_URL=http://ai-services:8000
